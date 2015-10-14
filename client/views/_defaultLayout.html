@@ -1,18 +1,35 @@
 <!-- GLOBAL LAYOUT -->
 <template name="_defaultLayout">
-	{{>sideBar}}
-	<!-- START PAGE-CONTAINER -->
-	<div class="page-container">
-		{{>header}}
-		<!-- START PAGE CONTENT WRAPPER -->
-		<div class="page-content-wrapper">
-			<!-- START PAGE CONTENT -->
-			<div class="content {{isActivePath "/" class="sm-gutter"}} ">
-				{{> Template.dynamic template=main}}
+	{{#if authInProcess}}
+	<p>loading ...</p>
+	{{else}}
+	  {{#if canShow}}
+			{{>sideBar}}
+			<!-- START PAGE-CONTAINER -->
+			<div class="page-container">
+				{{>header}}
+				<!-- START PAGE CONTENT WRAPPER -->
+				<div class="page-content-wrapper">
+					<!-- START PAGE CONTENT -->
+					<div class="content {{isActivePath "/" class="sm-gutter"}} ">
+						{{> Template.dynamic template=main}}
+					</div>
+				</div>
 			</div>
-
+			{{>quickView}}
+			{{>overlaySearch}}
+		{{else}}
+		<div class="container-xs-height full-height">
+			<div class="row-xs-height">
+				<div class="col-xs-height col-middle">
+					<div class="error-container text-center">
+						<h1 class="error-number">401</h1>
+						<h2 class="semi-bold">You are currently not logged in.</h2>
+						<p>Already have an account?</p><p><a class="btn btn-complete btn-lg" href="/login">Login Now</a> </p>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-	{{>quickView}}
-	{{>overlaySearch}}
+		{{/if}}
+	{{/if}}
 </template>

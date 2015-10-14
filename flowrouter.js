@@ -1,4 +1,3 @@
-
 FlowRouter.route('/', {
     action: function(params) {
 	    FlowLayout.render("_defaultLayout", {main: "dashboard"});

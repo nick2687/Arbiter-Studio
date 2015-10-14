@@ -15,14 +15,20 @@ Template._defaultLayout.onRendered(function () {
 	});
 });
 
-/** Template Helpers */
- /*
+
 Template._defaultLayout.helpers({
 	// Register template helpers with arguments {{foo "John" "Doe" title="President"}}
 	// foo: function (first, last, keyword) { return keyword.hash.title + firstName + " " + lastName; }
+	authInProcess: function() {
+	    return Meteor.loggingIn();
+	  },
+	  canShow: function() {
+	    return !!Meteor.user();
+	  }
+
 
 });
-*/
+
 
 /** jQuery Events */
 
