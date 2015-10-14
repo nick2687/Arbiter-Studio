@@ -18,7 +18,7 @@ Package.describe({
 
 Package.onUse(function(api) {
     api.versionsFrom(['METEOR@0.9.0', 'METEOR@1.0']);
-    api.use(['jquery','less', 'momentjs:moment', 'bkruse:pace', 'gromo:jquery.scrollbar','fortawesome:fontawesome'], where);
+    api.use(['jquery','less', 'momentjs:moment', 'gromo:jquery.scrollbar','fortawesome:fontawesome'], where);
     api.addFiles([
         'js/pages.min.js'], where);
 });

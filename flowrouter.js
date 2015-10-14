@@ -12,7 +12,12 @@ FlowRouter.route('/blank/:areaName', {
 
 FlowRouter.route('/login', {
 	action: function (params) {
-		FlowLayout.render("_plainLayout", {main: "login"});
+    if(!!Meteor.user()) {
+     FlowRouter.go("/");
+    }
+    else {
+      FlowLayout.render("_plainLayout", {main: "login"});
+    }
 	}
 });
 
